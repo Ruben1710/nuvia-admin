@@ -72,6 +72,14 @@ export const WorksEdit = () => {
     }
   }, [id, setValue]);
 
+  const handlePhotoChange = (url: string | string[]) => {
+    if (typeof url === 'string') {
+      setPhoto(url);
+    } else if (Array.isArray(url) && url.length > 0) {
+      setPhoto(url[0]);
+    }
+  };
+
   useEffect(() => {
     setValue('photo', photo);
   }, [photo, setValue]);
@@ -205,7 +213,7 @@ export const WorksEdit = () => {
                 <div className="space-y-3">
                   <UploadInput
                     value={photo}
-                    onChange={setPhoto}
+                    onChange={handlePhotoChange}
                     label="Фото *"
                   />
                   {errors.photo && (

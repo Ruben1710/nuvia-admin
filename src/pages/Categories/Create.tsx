@@ -31,6 +31,14 @@ export const CategoriesCreate = () => {
     resolver: zodResolver(categorySchema),
   });
 
+  const handleImageChange = (url: string | string[]) => {
+    if (typeof url === 'string') {
+      setCategoryImage(url);
+    } else if (Array.isArray(url) && url.length > 0) {
+      setCategoryImage(url[0]);
+    }
+  };
+
   useEffect(() => {
     setValue('img', categoryImage);
   }, [categoryImage, setValue]);
@@ -92,7 +100,7 @@ export const CategoriesCreate = () => {
             <div className="space-y-2 border-t pt-4">
               <UploadInput
                 value={categoryImage}
-                onChange={setCategoryImage}
+                onChange={handleImageChange}
                 label="Изображение категории (необязательно)"
               />
             </div>

@@ -10,7 +10,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select } from '@/components/ui/select';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { UploadInput } from '@/components/UploadInput';
 import { MaterialFromUsFilter } from '@/components/filters/MaterialFromUsFilter';
 import { SizeFilter } from '@/components/filters/SizeFilter';
 import { ImageWithModelsInput } from '@/components/ImageWithModelsInput';
@@ -56,7 +55,6 @@ export const ProductsCreate = () => {
     register,
     handleSubmit,
     setValue,
-    watch,
     formState: { errors, isSubmitting },
   } = useForm<ProductFormData>({
     resolver: zodResolver(productSchema),

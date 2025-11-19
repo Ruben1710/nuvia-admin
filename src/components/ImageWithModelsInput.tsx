@@ -50,7 +50,13 @@ export function ImageWithModelsInput({
     return model.size[locale] || model.size.en;
   };
 
-  const canAddImage = newImageUrl && selectedModelIds.length > 0;
+  const handleImageUrlChange = (url: string | string[]) => {
+    if (typeof url === 'string') {
+      setNewImageUrl(url);
+    } else if (Array.isArray(url) && url.length > 0) {
+      setNewImageUrl(url[0]);
+    }
+  };
 
   return (
     <div className="space-y-4">
@@ -95,7 +101,7 @@ export function ImageWithModelsInput({
             <Label>Загрузка изображения</Label>
             <UploadInput
               value={newImageUrl}
-              onChange={setNewImageUrl}
+              onChange={handleImageUrlChange}
               label=""
             />
           </div>
