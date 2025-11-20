@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Package, FolderTree, LogOut, Briefcase } from 'lucide-react';
+import { LayoutDashboard, Package, FolderTree, LogOut, Briefcase, Users } from 'lucide-react';
 import { useAuthStore } from '@/store/auth';
 import { cn } from '@/lib/utils';
 
@@ -8,6 +8,7 @@ const menuItems = [
   { path: '/categories', label: 'Категории', icon: FolderTree },
   { path: '/products', label: 'Товары', icon: Package },
   { path: '/works', label: 'Работы', icon: Briefcase },
+  { path: '/users', label: 'Пользователи', icon: Users },
 ];
 
 export const Sidebar = () => {

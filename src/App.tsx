@@ -13,6 +13,9 @@ import { ProductsEdit } from './pages/Products/Edit';
 import { WorksList } from './pages/Works/List';
 import { WorksCreate } from './pages/Works/Create';
 import { WorksEdit } from './pages/Works/Edit';
+import { UsersList } from './pages/Users/List';
+import { UsersCreate } from './pages/Users/Create';
+import { UsersEdit } from './pages/Users/Edit';
 
 function AppLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -127,6 +130,36 @@ function App() {
             <ProtectedRoute>
               <AppLayout>
                 <WorksEdit />
+              </AppLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/users"
+          element={
+            <ProtectedRoute>
+              <AppLayout>
+                <UsersList />
+              </AppLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/users/create"
+          element={
+            <ProtectedRoute>
+              <AppLayout>
+                <UsersCreate />
+              </AppLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/users/edit/:id"
+          element={
+            <ProtectedRoute>
+              <AppLayout>
+                <UsersEdit />
               </AppLayout>
             </ProtectedRoute>
           }
